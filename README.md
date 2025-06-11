@@ -10,6 +10,8 @@ Welcome to my GitHub profile!
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohammed-choubi-6a9b3333b/) 
 [![Portfolio](https://img.shields.io/badge/Portfolio-7B4FDF?style=for-the-badge&logo=google-chrome&logoColor=white)](https://cm.shobeel.com/) 
 ![Profile views](https://komarev.com/ghpvc/?username=Choubi-Mohammed&label=Profile%20views&color=0e75b6&style=for-the-badge)
+[🔒 My Private Profile Views](https://Choubi-Mohammed.github.io/state/stats.html)
+
 
 ---
 
