@@ -23,3 +23,6 @@ Right now, I’m busy building things that matter and making sense of the digita
   <img src="https://lanyard.cnrad.dev/api/1163737559411728414?bg=002f5b&borderRadius=20px&idleMessage=Garbage%20collecting%20my%20own%20thoughts&theme=dark" />
 </a>
 </div>
+
+###  System Status
+> `Active session. Manipulating the grid.`
