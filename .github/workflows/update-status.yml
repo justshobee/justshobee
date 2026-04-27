@@ -1,0 +1,29 @@
+name: Update Status
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Logic
+        run: |
+          HOUR=$(date +%H)
+          if [ $HOUR -ge 23 ] || [ $HOUR -lt 7 ]; then
+            MSG="System in low-power mode. Recharging consciousness."
+          else
+            MSG="Active session. Manipulating the grid."
+          fi
+          sed -i "//,//c\\n> \`$MSG\`\n" README.md
+
+      - name: Push
+        run: |
+          git config user.name "robot"
+          git config user.email "bot@github.com"
+          git add README.md
+          git commit -m "Update status" || exit 0
+          git push
