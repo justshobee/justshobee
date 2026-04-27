@@ -18,12 +18,11 @@ jobs:
           else
             MSG="Active session. Manipulating the grid."
           fi
-          sed -i "//,//c\\n> \`$MSG\`\n" README.md
+          sed -i "/<!-- STATUS START -->/,/<!-- STATUS END -->/c\\ <!-- STATUS START -->\n> \`$MSG\`\n<!-- STATUS END -->" README.md
 
       - name: Push
         run: |
           git config user.name "robot"
           git config user.email "bot@github.com"
           git add README.md
-          git commit -m "Update status" || exit 0
-          git push
+          git diff --cached --exit-code || (git commit -m "Update status" && git push)

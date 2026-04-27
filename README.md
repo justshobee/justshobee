@@ -25,4 +25,6 @@ Right now, I’m busy building things that matter and making sense of the digita
 </div>
 
 ###  System Status
+<!-- STATUS START -->
 > `Active session. Manipulating the grid.`
+<!-- STATUS END -->
