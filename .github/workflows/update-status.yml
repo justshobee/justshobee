@@ -12,17 +12,17 @@ jobs:
 
       - name: Logic
         run: |
-          # Force the hour to match Morocco Timezone (Africa/Casablanca)
-          HOUR=$(TZ='Africa/Casablanca' date +%H)
+          # Use %-H to remove the leading zero (ensures 8 AM is "8" not "08")
+          HOUR=$(TZ='Africa/Casablanca' date +%-H)
           
-          if [ $HOUR -ge 23 ] || [ $HOUR -lt 7 ]; then
+          if [ "$HOUR" -ge 23 ] || [ "$HOUR" -lt 7 ]; then
             MSG="System in low-power mode. Recharging consciousness."
           else
             MSG="Active session. Manipulating the grid."
           fi
           
-          # Use perl for more reliable multiline replacement
-          perl -i -pe 's/(<!-- STATUS START -->).*?(<!-- STATUS END -->)/$1\n> `'"$MSG"'`\n$2/s' README.md
+          # Added -0777 to allow Perl to match across multiple lines
+          perl -0777 -i -pe "s/(<!-- STATUS START -->).*?(<!-- STATUS END -->)/\$1\n> \`$MSG\`\n\$2/sg" README.md
 
       - name: Push
         run: |
