@@ -12,17 +12,22 @@ jobs:
 
       - name: Logic
         run: |
-          HOUR=$(date +%H)
+          # Force the hour to match Morocco Timezone (Africa/Casablanca)
+          HOUR=$(TZ='Africa/Casablanca' date +%H)
+          
           if [ $HOUR -ge 23 ] || [ $HOUR -lt 7 ]; then
             MSG="System in low-power mode. Recharging consciousness."
           else
             MSG="Active session. Manipulating the grid."
           fi
-          sed -i "/<!-- STATUS START -->/,/<!-- STATUS END -->/c\\ <!-- STATUS START -->\n> \`$MSG\`\n<!-- STATUS END -->" README.md
+          
+          # Using | as a delimiter for sed to avoid conflicts with / in comments
+          sed -i "\||,\||c\\n> \`$MSG\`\n" README.md
 
       - name: Push
         run: |
           git config user.name "robot"
           git config user.email "bot@github.com"
           git add README.md
+          # Only commit and push if the file actually changed
           git diff --cached --exit-code || (git commit -m "Update status" && git push)
