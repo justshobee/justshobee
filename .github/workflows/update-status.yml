@@ -21,8 +21,8 @@ jobs:
             MSG="Active session. Manipulating the grid."
           fi
           
-          # Using | as a delimiter for sed to avoid conflicts with / in comments
-          sed -i "\||,\||c\\n> \`$MSG\`\n" README.md
+          # Use perl for more reliable multiline replacement
+          perl -i -pe 's/(<!-- STATUS START -->).*?(<!-- STATUS END -->)/$1\n> `'"$MSG"'`\n$2/s' README.md
 
       - name: Push
         run: |
