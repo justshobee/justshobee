@@ -26,5 +26,5 @@ Right now, I’m busy building things that matter and making sense of the digita
 
 ###  System Status
  <!-- STATUS START -->
-> `Active session. Manipulating the grid.`
+> `System in low-power mode. Recharging consciousness.`
 <!-- STATUS END -->
